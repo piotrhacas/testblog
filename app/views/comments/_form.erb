@@ -1,0 +1,22 @@
+<% if @comment.errors.any? %>
+<ul>
+	<% @comment.errors.full_messages.each do |msg| %>
+	<li>
+		<%= msg %>
+	</li>
+	<% end %>
+</ul>
+<% end %>
+
+<%= form_for @comment do |f| %>
+	<%= f.label :body %>
+	<%= f.text_field :body %>
+	<hr />
+	<%= f.label :post_id %>
+	<%= collection_select(:author, :post_id, Post.all, :id, :title, prompt: false) %>
+	<hr />
+	<%= f.label :author_id %>
+	<%= collection_select(:post, :author_id, Author.all, :id, :fullname, prompt: false) %>
+	<hr />
+	<%= f.submit 'Save' %>	
+<% end %>

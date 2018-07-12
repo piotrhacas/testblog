@@ -9,9 +9,8 @@ class Post < ActiveRecord::Base
 
 	# has_many :author_posts
 	# has_many :authors, through: :author_posts
-	# has_many :comments
-
-	belongs_to :author
+	has_many :comments
+	belongs_to :author#, optional: true
 
 	def post_info
 		"title: #{title} content: #{content}"
