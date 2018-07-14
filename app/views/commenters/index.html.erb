@@ -21,15 +21,3 @@
 	<hr />
 	<%= f.submit 'Save' %>	
 <% end %>
-
-<!-- <ul>
-	<% @commenters.each do |commenter| %>
-		<li>
-			<%= link_to commenter.commenter_info, commenter_path(id: commenter.id) %>
-			<%= link_to 'Edit', edit_commenter_path(id: commenter.id) %>
-			<%= link_to 'Destroy', commenter_path(id: commenter.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-		</li>
-	<% end %>
-</ul>
-<hr />
-<%= link_to 'New commenter', new_commenter_path %> -->
