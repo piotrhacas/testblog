@@ -5,13 +5,7 @@ class CommentsController < ApplicationController
 		@comment = Comment.new
 	end
 
-	# def show
-	# 	@comment = Comment.find(params[:id])		
-	# end
 
-	# def new
-	# 	@comment = Comment.new
-	# end
 
 	def create
 		@post = Post.find(params[:post_id])
