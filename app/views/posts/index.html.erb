@@ -1,4 +1,4 @@
-<h1>List of all posts</h1>
+<!-- <h1>List of all posts</h1>
 
 <ul>
 	<% @posts.each do |post| %>
@@ -10,4 +10,31 @@
 	<% end %>
 </ul>
 <hr />
-<%= link_to 'New post', new_post_path %>
+<%= link_to 'New post', new_post_path %> -->
+
+<div class="jumbotron">
+	<h1>List of all posts</h1>
+</div>
+
+<img style="display: none;" src="https://i.redd.it/ounq1mw5kdxy.gif"/>
+<ul>
+	<div class="posts">
+		<% @posts.each do |post| %>
+			<%= render 'post', post: post %>
+		<% end %>
+	</div>	
+</ul>
+<hr />
+
+<%= form_for @post, remote: true, html: { class: 'new-post' } do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<hr />
+	<%= f.label :content %>
+	<%= f.text_field :content %>
+	<hr />
+	<%= f.label :author_id %>
+	<%= collection_select(:post, :author_id, Author.all, :id, :fullname, prompt: false) %>
+	<hr />
+	<%= f.submit 'Save' %>	
+<% end %>

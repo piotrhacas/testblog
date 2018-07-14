@@ -1,0 +1,8 @@
+<% if @commenter.persisted? %>
+	$('.commenters').append('<%= escape_javascript render('commenter', commenter: @commenter) %>');
+<% else %>
+	alert('ogarnij się');
+	alert('<%= j @commenter.errors.full_messages.join(', ') %>');
+<% end %>
+
+$('.new-commenter').find('input[type="text"]').val('');

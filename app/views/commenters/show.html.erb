@@ -1,0 +1,17 @@
+<h1>
+	<%= @commenter.commenter_info %>
+</h1>
+
+<p>
+	Name:
+	<%= @commenter.name %>
+	<hr />
+	Surname:
+	<%= @commenter.surname %>
+	<hr />
+</p>
+<%= link_to 'Back to commenters', commenters_path %>
+<br />
+<%= link_to 'Back to authors', authors_path %>
+<br />
+<%= link_to 'Back to posts', posts_path %>

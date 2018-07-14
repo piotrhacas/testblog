@@ -1,0 +1,6 @@
+<div class="row", data-commenter-id="<%= commenter.id %>">
+	<div class="col-sm-12 col-md-8"><%= link_to commenter.commenter_info, author_path(id: commenter.id) %></div>
+	<div class="col-sm-12 col-md-2"><%= link_to 'Edit', edit_commenter_path(id: commenter.id), role: 'button', class: 'btn btn-primary' %></div>
+	<div class="col-sm-12 col-md-2"><%= link_to 'Destroy', commenter_path(id: commenter.id), method: :delete, remote: true,
+	 data: { confirm: 'Are you sure?' }, role: 'button', class: 'btn btn-danger' %></div>
+</div>

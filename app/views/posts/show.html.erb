@@ -1,6 +1,6 @@
-<h1>
-	<%= @post.post_info %>
-</h1>
+<div class="jumbotron">
+	<h1><%= @post.title %></h1>
+</div>
 
 <p>
 	Title:
@@ -18,4 +18,33 @@
 	Updated at:
 	<%= @post.updated_at %>
 </p>
+<div class="jumbotron">
+	<h2>Comments</h2>
+</div>
+<% @post.comments.each do |comment| %>
+<p>
+	<strong>Body:</strong>
+	<%= comment.body %>
+	<br />
+	<strong>Commenter:</strong>
+	<%= link_to comment.commenter.commenter_info, commenter_path(comment.commenter_id) %>
+	<br />
+	<%= link_to 'Destroy', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>
+<% end %>
+
+<div class="jumbotron">
+	<h2>Add new comment</h2>
+</div>
+
+<%= form_for([@post, @post.comments.build]) do |f| %>
+	<%= f.label :body %>
+	<%= f.text_field :body %>
+	<hr />
+	<%= f.label :commenter_id %>
+	<%= collection_select(:comment, :commenter_id, Commenter.all, :id, :commenter_info, prompt: false) %>
+	<hr />
+	<%= f.submit 'Save' %>	
+<% end %>
+
 <%= link_to 'Back to posts', posts_path %>

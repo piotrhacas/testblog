@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_11_220635) do
+ActiveRecord::Schema.define(version: 2018_07_14_014133) do
 
   create_table "author_posts", force: :cascade do |t|
     t.integer "author_id"
@@ -25,14 +25,11 @@ ActiveRecord::Schema.define(version: 2018_07_11_220635) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "comment_id"
   end
 
   create_table "commenters", force: :cascade do |t|
     t.string "name"
     t.string "surname"
-    t.integer "comment_id"
-    t.index ["comment_id"], name: "index_commenters_on_comment_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -40,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_07_11_220635) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "post_id"
-    t.integer "author_id"
+    t.integer "commenter_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -49,7 +46,6 @@ ActiveRecord::Schema.define(version: 2018_07_11_220635) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "author_id"
-    t.integer "comment_id"
   end
 
 end
