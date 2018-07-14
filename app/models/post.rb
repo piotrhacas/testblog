@@ -13,6 +13,6 @@ class Post < ActiveRecord::Base
 	belongs_to :author#, optional: true
 
 	def post_info
-		"title: #{title} content: #{content}"
+		"#{title} #{content}"
 	end
 end
