@@ -12,15 +12,6 @@
 </ul>
 <hr />
 
-<%= form_for @post, remote: true, html: { class: 'new-post' } do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-	<hr />
-	<%= f.label :content %>
-	<%= f.text_field :content %>
-	<hr />
-	<%= f.label :author_id %>
-	<%= collection_select(:post, :author_id, Author.all, :id, :fullname, prompt: false) %>
-	<hr />
-	<%= f.submit 'Save' %>	
-<% end %>
+<div class="container posts-add">
+	<%= render 'form' %>
+</div>

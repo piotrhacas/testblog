@@ -8,7 +8,7 @@
 </ul>
 <% end %>
 
-<%= form_for @post do |f| %>
+<%= form_for @post, remote: true, html: { class: 'new-post' } do |f| %>
 	<%= f.label :title %>
 	<%= f.text_field :title %>
 	<hr />

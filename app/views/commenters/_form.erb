@@ -8,7 +8,9 @@
 </ul>
 <% end %>
 
-<%= form_for @commenter do |f| %>
+<hr />
+
+<%= form_for @commenter, remote: true, html: { class: 'new-commenter' } do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 	<hr />

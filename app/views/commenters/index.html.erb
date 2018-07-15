@@ -12,12 +12,7 @@
 </ul>
 <hr />
 
-<%= form_for @commenter, remote: true, html: { class: 'new-commenter' } do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<hr />
-	<%= f.label :surname %>
-	<%= f.text_field :surname %>
-	<hr />
-	<%= f.submit 'Save' %>	
-<% end %>
+<div class="commenters-display">
+	<%= render 'form' %>
+</div>
+

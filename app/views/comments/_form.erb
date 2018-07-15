@@ -1,0 +1,9 @@
+<%= form_for([@post, @post.comments.build]) do |f| %>
+	<%= f.label :body %>
+	<%= f.text_field :body %>
+	<hr />
+	<%= f.label :commenter_id %>
+	<%= collection_select(:comment, :commenter_id, Commenter.all, :id, :commenter_info, prompt: false) %>
+	<hr />
+	<%= f.submit 'Save' %>	
+<% end %>

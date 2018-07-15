@@ -12,25 +12,37 @@
       <li class="nav-item active">
         <a class="nav-link" href="/posts">Posts <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/authors">Authors</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/commenters">Commenters</a>
-      </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item active dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          Authors
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" >
+            <% Author.all.each do |author| %>
+            <%= link_to author.fullname, author_path(author.id), class: 'dropdown-item', "data-author-id": author.id  %>
+            <% end %>
+          </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item">
+            <%= link_to 'Index', authors_path, class: 'dropdown-item' %>
+          </a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+      <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Commenters
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" >
+            <% Commenter.all.each do |commenter| %>
+            <%= link_to commenter.commenter_info, commenter_path(commenter.id), class: 'dropdown-item', "data-commenter-id": commenter.id  %>
+            <% end %>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item">
+            <%= link_to 'Index', commenters_path, class: 'dropdown-item' %>
+          </a>
+        </div>
       </li>
     </ul>
   </div>
